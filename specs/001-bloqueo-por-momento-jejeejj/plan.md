@@ -78,3 +78,5 @@ Ver [`contracts/bloqueo-contracts.md`](./contracts/bloqueo-contracts.md).
 
 - **ADR-001:** Bloqueo vía Accessibility Service (Android) + captura de launch.
 - **ADR-002:** Persistencia local con SharedPreferences (sin backend).
+- **ADR-003:** Mensaje de bloqueo configurable por bloqueo (RF-07), con mensaje
+  predeterminado.

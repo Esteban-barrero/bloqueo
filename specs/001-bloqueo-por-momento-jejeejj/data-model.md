@@ -24,6 +24,7 @@ configuración de bloques del usuario.
 | `horaFin` | Int (minutos) | Sí | Hora fin del bloqueo por horario. |
 | `duracionMinutos` | Int | Sí | Duración del bloqueo por tiempo. |
 | `activo` | Bool | Sí | Estado del bloqueo. |
+| `mensaje` | String | Sí | Mensaje de bloqueo mostrado al intentar abrir la app bloqueada (RF-07). |
 
 ## 3. Reglas de persistencia
 

@@ -16,7 +16,7 @@
 
 ## Definition of Done (spec 001)
 
-- [ ] Criterios de aceptación cumplidos.
+- [ ] Criterios de aceptación cumplidos (incl. CA-05: mensaje de bloqueo).
 - [ ] `flutter analyze` sin errores.
 - [ ] Pruebas pasando.
 - [ ] Código documentado en español (Principio 11).

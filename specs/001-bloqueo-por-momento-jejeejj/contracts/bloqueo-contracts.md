@@ -25,6 +25,11 @@ class GestorBloqueoVigente {
 }
 ```
 
+### Bloqueo
+
+- El contrato incluye el campo `mensaje` (RF-07): mensaje de bloqueo mostrado al
+  intentar abrir la app bloqueada durante el período vigente.
+
 ## 2. Contrato de plataforma (bloqueo nativo)
 
 ```dart

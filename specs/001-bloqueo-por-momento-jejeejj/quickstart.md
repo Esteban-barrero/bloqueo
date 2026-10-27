@@ -22,6 +22,8 @@
 - CA-02: Configurar horario (ej. 22:00–04:00) → intentar abrir app → pantalla de bloqueo.
 - CA-03: Fuera del horario → no hay bloqueo.
 - CA-04: Reiniciar app/dispositivo → la configuración persiste.
+- CA-05: Al crear el bloqueo, ingresar un mensaje (o usar el predeterminado) → al
+  intentar abrir la app bloqueada en el período, mostrarse el mensaje configurado.
 
 ## 4. Problemas frecuentes
 

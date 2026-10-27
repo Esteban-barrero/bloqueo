@@ -55,6 +55,11 @@ bloqueo**.
 - RF-06: El sistema debe permitir consultar el estado y cancelar/eliminar un
   bloqueo.
 
+- RF-07: El sistema debe permitir configurar el **mensaje de bloqueo** al crear
+  el bloqueo (por horario o por tiempo), con un mensaje predeterminado. El
+  mensaje se muestra al intentar abrir una aplicación bloqueada en el período de
+  bloqueo.
+
 ## 6. Reglas de Negocio
 
 - RN-01: Un bloqueo se aplica a una o varias aplicaciones seleccionadas.
@@ -71,12 +76,14 @@ bloqueo**.
       pantalla de bloqueo.
 - [ ] CA-03: Fuera del período definido, la app no se bloquea.
 - [ ] CA-04: La configuración persiste en el dispositivo y sobrevive a reinicio.
+- [ ] CA-05: El mensaje configurado se muestra al intentar abrir una aplicación
+      bloqueada dentro del período de bloqueo.
 
 ## 8. Datos Involucrados
 
 - Configuración local de bloqueos (persistencia en dispositivo):
   - `bloqueos[]`: id, appPackage, appName, tipo (`horario` | `tiempo`),
-    diasSemana[], horaInicio, horaFin, duracionMinutos, activo.
+    diasSemana[], horaInicio, horaFin, duracionMinutos, activo, mensaje.
 
 ## 9. Casos Borde / Errores
 

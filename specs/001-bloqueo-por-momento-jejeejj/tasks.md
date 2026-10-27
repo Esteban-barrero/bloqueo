@@ -18,12 +18,14 @@
 - [ ] T010 Implementar `GestorBloqueoVigente.estaActiva` (horario / tiempo)
 - [ ] T011 Implementar caso de uso `crearBloqueo`
 - [ ] T012 Implementar `eliminarBloqueo`
+- [ ] T013 Implementar mensaje predeterminado en la creación de bloqueo (RF-07)
 
 ## Fase 3 — Interfaz de Usuario
 
 - [ ] T020 Lista de apps instaladas + selección objetivo
 - [ ] T021 Editor de bloqueo (horario / tiempo)
 - [ ] T022 Pantalla de bloqueo al intentar abrir app bloqueada
+- [ ] T023 Pantalla de bloqueo muestra el mensaje configurado (RF-07)
 
 ## Fase 4 — Seguridad y Privacidad
 
