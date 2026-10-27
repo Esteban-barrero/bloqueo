@@ -18,7 +18,7 @@
 - [ ] T010 Implementar `GestorBloqueoVigente.estaActiva` (horario / tiempo)
 - [ ] T011 Implementar caso de uso `crearBloqueo`
 - [ ] T012 Implementar `eliminarBloqueo`
-- [ ] T013 Implementar mensaje predeterminado en la creación de bloqueo (RF-07)
+- [ ] T013 Implementar mensaje predeterminado en la creación de bloqueo (RF-07) *(default: «Oye, no pierdas el tiempo...»)*
 
 ## Fase 3 — Interfaz de Usuario
 

@@ -58,7 +58,7 @@ bloqueo**.
 - RF-07: El sistema debe permitir configurar el **mensaje de bloqueo** al crear
   el bloqueo (por horario o por tiempo), con un mensaje predeterminado. El
   mensaje se muestra al intentar abrir una aplicación bloqueada en el período de
-  bloqueo.
+  bloqueo. **Mensaje predeterminado:** «Oye, no pierdas el tiempo...».
 
 ## 6. Reglas de Negocio
 
