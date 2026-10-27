@@ -16,7 +16,8 @@
 
 ## Definition of Done (spec 001)
 
-- [ ] Criterios de aceptación cumplidos (incl. CA-05: mensaje de bloqueo).
+- [ ] Criterios de aceptación cumplidos (incl. CA-05: mensaje de bloqueo y
+      CA-06: botón Desbloquear).
 - [ ] `flutter analyze` sin errores.
 - [ ] Pruebas pasando.
 - [ ] Código documentado en español (Principio 11).

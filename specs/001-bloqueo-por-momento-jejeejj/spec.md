@@ -58,7 +58,8 @@ bloqueo**.
 - RF-07: El sistema debe permitir configurar el **mensaje de bloqueo** al crear
   el bloqueo (por horario o por tiempo), con un mensaje predeterminado. El
   mensaje se muestra al intentar abrir una aplicación bloqueada en el período de
-  bloqueo. **Mensaje predeterminado:** «Oye, no pierdas el tiempo...».
+  bloqueo y debe poder editarse desde la pantalla de bloqueo. **Mensaje
+  predeterminado:** «Oye, no pierdas el tiempo...».
 
 ## 6. Reglas de Negocio
 
@@ -78,6 +79,8 @@ bloqueo**.
 - [ ] CA-04: La configuración persiste en el dispositivo y sobrevive a reinicio.
 - [ ] CA-05: El mensaje configurado se muestra al intentar abrir una aplicación
       bloqueada dentro del período de bloqueo.
+- [ ] CA-06: Desde la pantalla de bloqueo debe existir un botón **Desbloquear**
+      que permita desbloquear la aplicación.
 
 ## 8. Datos Involucrados
 

@@ -14,6 +14,6 @@ void main() {
     expect(find.text('Está bloqueado'), findsOneWidget);
     expect(find.text('Instagram'), findsOneWidget);
     expect(find.text('Oye, no pierdas el tiempo...'), findsOneWidget);
-    expect(find.text('Cancelar bloqueo'), findsOneWidget);
+    expect(find.text('Desbloquear'), findsOneWidget);
   });
 }

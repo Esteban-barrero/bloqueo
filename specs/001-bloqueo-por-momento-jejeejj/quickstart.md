@@ -24,6 +24,7 @@
 - CA-04: Reiniciar app/dispositivo → la configuración persiste.
 - CA-05: Al crear el bloqueo, ingresar un mensaje (o usar el predeterminado) → al
   intentar abrir la app bloqueada en el período, mostrarse el mensaje configurado.
+- CA-06: Desde la pantalla de bloqueo debe existir el botón **Desbloquear** (RF-06).
 
 ## 4. Problemas frecuentes
 

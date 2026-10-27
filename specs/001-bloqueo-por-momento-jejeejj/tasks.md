@@ -26,6 +26,7 @@
 - [ ] T021 Editor de bloqueo (horario / tiempo)
 - [ ] T022 Pantalla de bloqueo al intentar abrir app bloqueada
 - [ ] T023 Pantalla de bloqueo muestra el mensaje configurado (RF-07)
+- [ ] T024 Botón Desbloquear en la pantalla de bloqueo (RF-06)
 
 ## Fase 4 — Seguridad y Privacidad
 
