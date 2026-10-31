@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/nativo/servicio_nativo.dart';
 import '../controlador/controlador_bloqueos.dart';
 import '../../domain/entidades/bloqueo.dart';
 import 'pantalla_editor.dart';
 import 'pantalla_bloqueo.dart';
 
-/// Pantalla principal: lista de bloqueos + acceso al editor y simulacion.
+/// Pantalla principal: estado del servicio, lista de bloqueos y editor.
 class PantallaPrincipal extends StatefulWidget {
   const PantallaPrincipal({super.key, required this.controlador});
 
@@ -15,18 +16,38 @@ class PantallaPrincipal extends StatefulWidget {
   State<PantallaPrincipal> createState() => _PantallaPrincipalState();
 }
 
-class _PantallaPrincipalState extends State<PantallaPrincipal> {
+class _PantallaPrincipalState extends State<PantallaPrincipal>
+    with WidgetsBindingObserver {
+  bool _accesibilidadActiva = false;
+
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     widget.controlador.cargar();
     widget.controlador.addListener(_onCambio);
+    _actualizarEstadoAccesibilidad();
   }
 
   void _onCambio() => setState(() {});
 
+  Future<void> _actualizarEstadoAccesibilidad() async {
+    final activo = await ServicioNativo.estaActivado();
+    if (!mounted) return;
+    setState(() => _accesibilidadActiva = activo);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _actualizarEstadoAccesibilidad();
+      widget.controlador.cargar();
+    }
+  }
+
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     widget.controlador.removeListener(_onCambio);
     super.dispose();
   }
@@ -46,17 +67,101 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
             end: Alignment.bottomRight,
           ),
         ),
-        child: widget.controlador.cargando
-            ? const Center(child: CircularProgressIndicator())
-            : widget.controlador.bloqueos.isEmpty
-                ? _vacio()
-                : _lista(),
+        child: Column(
+          children: [
+            _estadoServicio(),
+            Expanded(
+              child: widget.controlador.cargando
+                  ? const Center(child: CircularProgressIndicator())
+                  : widget.controlador.bloqueos.isEmpty
+                      ? _vacio()
+                      : _lista(),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _nuevoBloqueo,
         backgroundColor: const Color(0xFF7B2FF7),
         icon: const Icon(Icons.add),
         label: const Text('Nuevo bloqueo'),
+      ),
+    );
+  }
+
+  /// Banner con el estado del servicio de accesibilidad.
+  Widget _estadoServicio() {
+    if (_accesibilidadActiva) {
+      return Container(
+        margin: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+        decoration: BoxDecoration(
+          color: const Color(0xFF00E5FF).withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: const Color(0xFF00E5FF).withValues(alpha: 0.35),
+          ),
+        ),
+        child: const Row(
+          children: [
+            Icon(Icons.verified_rounded, color: Color(0xFF00E5FF), size: 20),
+            SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                'Bloqueo real activo',
+                style: TextStyle(color: Color(0xFF00E5FF)),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Container(
+      margin: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFB300).withValues(alpha: 0.12),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: const Color(0xFFFFB300).withValues(alpha: 0.35),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Falta activar el bloqueo real',
+            style: TextStyle(
+              color: Color(0xFFFFD54F),
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 4),
+          const Text(
+            'Activa el servicio de accesibilidad de Bloqueo para que detecte '
+            'cuando abres una app bloqueada.',
+            style: TextStyle(color: Colors.white70, fontSize: 12),
+          ),
+          const SizedBox(height: 8),
+          SizedBox(
+            height: 36,
+            child: TextButton.icon(
+              onPressed: () async {
+                await ServicioNativo.abrirAjustesAccesibilidad();
+              },
+              icon: const Icon(Icons.settings, size: 16, color: Colors.white),
+              label: const Text(
+                'Activar ahora',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: TextButton.styleFrom(
+                backgroundColor: const Color(0xFF7B2FF7),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

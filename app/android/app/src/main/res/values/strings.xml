@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bloqueo</string>
+    <string name="servicio_bloqueo_label">Bloqueo de aplicaciones</string>
+    <string name="servicio_bloqueo_descripcion">Detecta cuando abres una aplicación bloqueada y muestra la pantalla de bloqueo. No lee el contenido de otras apps.</string>
+</resources>

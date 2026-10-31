@@ -32,6 +32,9 @@
 ## Fase 4 — Seguridad y Privacidad
 
 - [x] T030 Garantizar persistencia local con datos sensibles del usuario (SharedPreferences, sin backend)
+- [x] T031 Implementar Accessibility Service nativo (detección de apertura + overlay de bloqueo)
+- [x] T032 Sincronizar la configuración de bloqueos hacia el servicio nativo (`bloqueos_nativo`)
+- [x] T033 Pantalla para activar el servicio de accesibilidad (canal nativo)
 
 ## Fase 5 — Pruebas y Cierre
 
@@ -45,20 +48,17 @@
 
 ## Pendiente (no bloqueante)
 
-- **Bloqueo nativo real:** interceptar el launch de la app bloqueada requiere un
-  **Accessibility Service** en Android (código nativo + PlatformChannel) y una
-  alternativa en iOS. El MVP implementa la UI, la lógica de vigencia y la
-  persistencia local; la interceptación queda como siguiente fase.
 - **Lista real de apps instaladas:** requiere plugin nativo (`installed_apps` /
-  `device_apps`) con permisos.
+  `device_apps`) con permisos. Por ahora: lista de apps populares + entrada manual.
+- **iOS:** el bloqueo nativo se implementó para Android (Accessibility Service);
+  iOS no permite el mismo mecanismo.
 
 ---
 
 ## Criterio de Terminado (Definition of Done)
 
-- [x] Criterios de aceptación de `spec.md` cumplidos a nivel de UI/lógica local
-      (CA-01 pegado a la lógica, CA-03, CA-04, CA-05, CA-06). CA-02 (interceptar
-      el launch real) queda para la fase nativa.
+- [x] Criterios de aceptación de `spec.md` cumplidos, incluido CA-02 (la app
+      bloqueada muestra la pantalla de bloqueo mediante el Accessibility Service).
 - [x] `flutter analyze` sin errores
 - [x] Pruebas pasando (6)
 - [x] Código documentado: métodos y clases comentados en español (Principio 11)

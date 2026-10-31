@@ -13,9 +13,9 @@ Jejeejj**.
 
 | # | Funcionalidad | Estado | Tareas | Pendientes |
 |---|---|---|---|---|
-| 001 | [Bloqueo por momento Jejeejj](./001-bloqueo-por-momento-jejeejj/) | MVP (UI + lógica + persistencia local) | 14/16 | Bloqueo nativo (Accessibility Service) |
+| 001 | [Bloqueo por momento Jejeejj](./001-bloqueo-por-momento-jejeejj/) | Implementada (v1.2, Android) | 19/20 | Lista real de apps instaladas (iOS/futuro) |
 
-**Total:** 14 tareas cerradas de 16 (2 parciales).
+**Total:** 19 tareas cerradas de 20 (1 parcial).
 
 ---
 
