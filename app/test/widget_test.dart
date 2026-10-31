@@ -1,19 +1,21 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:bloqueo/main.dart';
 
 void main() {
-  testWidgets('Pantalla de bloqueo muestra el mensaje', (WidgetTester tester) async {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() {
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+  });
+
+  testWidgets('App inicia y muestra la pantalla principal', (WidgetTester tester) async {
     await tester.pumpWidget(const BloqueoApp());
+    await tester.pump(const Duration(milliseconds: 500));
+    await tester.pump(const Duration(milliseconds: 500));
 
-    // Espera la animación de entrada de la tarjeta/pantalla.
-    await tester.pump(const Duration(milliseconds: 1500));
-    await tester.pump(const Duration(milliseconds: 300));
-
-    // Verifica que la pantalla de bloqueo se muestre.
-    expect(find.text('Está bloqueado'), findsOneWidget);
-    expect(find.text('Instagram'), findsOneWidget);
-    expect(find.text('Oye, no pierdas el tiempo...'), findsOneWidget);
-    expect(find.text('Desbloquear'), findsOneWidget);
+    expect(find.text('Bloqueo Por Momento Jejeejj'), findsOneWidget);
+    expect(find.text('Aun no tienes bloqueos'), findsOneWidget);
   });
 }

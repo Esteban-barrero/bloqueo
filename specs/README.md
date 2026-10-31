@@ -13,9 +13,9 @@ Jejeejj**.
 
 | # | Funcionalidad | Estado | Tareas | Pendientes |
 |---|---|---|---|---|
-| 001 | [Bloqueo por momento Jejeejj](./001-bloqueo-por-momento-jejeejj/) | Borrador | 0/14 | Aprobación de spec y plan |
+| 001 | [Bloqueo por momento Jejeejj](./001-bloqueo-por-momento-jejeejj/) | MVP (UI + lógica + persistencia local) | 14/16 | Bloqueo nativo (Accessibility Service) |
 
-**Total:** 0 tareas cerradas.
+**Total:** 14 tareas cerradas de 16 (2 parciales).
 
 ---
 
