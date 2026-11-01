@@ -53,3 +53,7 @@ Documentacion/cuentas-demo.md
 # Son identificadores publicos del cliente (la seguridad va en las reglas
 # de Firestore/Storage y en Authentication), y el plugin de Gradle de
 # Android los requiere para compilar.
+
+# Keystore de firma release (NO subir)
+*.jks
+

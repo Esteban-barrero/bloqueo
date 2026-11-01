@@ -17,6 +17,18 @@ class ServicioNativo {
     }
   }
 
+  /// Abre la pantalla de informacion/ajustes de esta app
+  /// (donde esta el menu de 3 puntos para "Permitir ajustes restringidos").
+  static Future<void> abrirAjustesApp() async {
+    try {
+      await _canal.invokeMethod('abrirAjustesApp');
+    } on PlatformException {
+      // Ignorar.
+    } on MissingPluginException {
+      // Ignorar.
+    }
+  }
+
   /// Indica si el servicio de accesibilidad esta habilitado.
   static Future<bool> estaActivado() async {
     try {

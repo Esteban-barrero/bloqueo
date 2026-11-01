@@ -1,6 +1,7 @@
 package com.example.bloqueo
 
 import android.content.Intent
+import android.net.Uri
 import android.provider.Settings
 import android.text.TextUtils
 import io.flutter.embedding.android.FlutterActivity
@@ -28,6 +29,20 @@ class MainActivity : FlutterActivity() {
 
                     "estaActivado" -> {
                         result.success(servicioActivado())
+                    }
+
+                    "abrirAjustesApp" -> {
+                        try {
+                            startActivity(
+                                Intent(
+                                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                    Uri.parse("package:$packageName")
+                                )
+                            )
+                            result.success(true)
+                        } catch (e: Exception) {
+                            result.error("ERROR", e.message, null)
+                        }
                     }
 
                     else -> result.notImplemented()

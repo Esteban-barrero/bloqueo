@@ -161,6 +161,65 @@ class _PantallaPrincipalState extends State<PantallaPrincipal>
               ),
             ),
           ),
+          TextButton(
+            onPressed: _mostrarGuiaPermiso,
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              minimumSize: const Size(0, 30),
+              alignment: Alignment.centerLeft,
+            ),
+            child: const Text(
+              '¿No aparece el permiso? Ver guía',
+              style: TextStyle(color: Color(0xFFFFD54F), fontSize: 12),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _mostrarGuiaPermiso() {
+    showDialog<void>(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: const Color(0xFF14102B),
+        title: const Text(
+          'Permiso restringido',
+          style: TextStyle(color: Colors.white),
+        ),
+        content: const SingleChildScrollView(
+          child: Text(
+            'Android 13+ bloquea la accesibilidad a las apps instaladas '
+            'fuera de Play Store.\n\n'
+            '1. Toca "Ir a Ajustes de la app".\n'
+            '2. Toca el menu de 3 puntos (arriba a la derecha).\n'
+            '3. Elige "Permitir ajustes restringidos".\n'
+            '4. Vuelve a la app y toca "Activar ahora".\n'
+            '5. Activa el servicio "Bloqueo de aplicaciones".\n\n'
+            'Si no aparece el menu de 3 puntos: intenta activar la '
+            'accesibilidad, cierra el aviso y vuelve a Ajustes de la app.',
+            style: TextStyle(color: Colors.white70, height: 1.5),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text(
+              'Cerrar',
+              style: TextStyle(color: Colors.white70),
+            ),
+          ),
+          TextButton(
+            onPressed: () async {
+              await ServicioNativo.abrirAjustesApp();
+              if (!context.mounted) return;
+              Navigator.of(context).pop();
+            },
+            child: const Text(
+              'Ir a Ajustes de la app',
+              style: TextStyle(color: Color(0xFF00E5FF)),
+            ),
+          ),
         ],
       ),
     );
